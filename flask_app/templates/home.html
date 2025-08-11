@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riassuntore Testi</title>
+   <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Text Summarize Service</h1>
+      <p>Incolla un testo e genera un riassunto estrattivo o astrattivo.</p>
+    </header>
+
+    <section class="card" aria-label="form-riassunto">
+      <form id="form">
+        <label for="text">Testo da riassumere</label>
+        <textarea id="text" name="text" placeholder="Incolla qui il testo..." required></textarea>
+        <div class="kpis" id="kpis"><span id="wc">0 parole</span><span id="cc">0 caratteri</span></div>
+
+        <div class="row">
+          <div>
+            <label for="mode">Modalità</label>
+            <select id="mode" name="mode">
+              <option value="abstractive" selected>Astrattivo</option>
+              <option value="extractive">Estrattivo</option>
+            </select>
+            <div class="hint">Astrattivo riscrive con parole proprie; estrattivo seleziona frasi originali.</div>
+          </div>
+          <!-- <div>
+            <label for="target">Lunghezza target</label>
+            <select id="target" name="target">
+              <option value="short">Breve</option>
+              <option value="medium" selected>Media</option>
+              <option value="long">Lunga</option>
+            </select>
+          </div> -->
+        </div>
+
+        <!-- <div class="controls" style="margin-top: 12px;">
+          <div>
+            <label for="title">Titolo (opzionale)</label>
+            <input id="title" name="title" type="text" placeholder="Titolo del documento" />
+          </div>
+          <div>
+            <label for="lang">Lingua</label>
+            <select id="lang" name="lang">
+              <option value="auto" selected>Auto</option>
+              <option value="it">Italiano</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+          <div>
+            <label for="bullets">Formato</label>
+            <select id="bullets" name="bullets">
+              <option value="paragraph" selected>Paragrafo</option>
+              <option value="bullets">Elenco puntato</option>
+            </select>
+          </div>
+        </div> -->
+
+        <div class="actions">
+          <button type="submit" id="submit">Riassumi</button>
+          <!-- <button type="button" class="secondary" id="clear">Pulisci</button> -->
+        </div>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </form>
+
+      <div id="result" class="output" hidden></div>
+    </section>
+  </div>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
